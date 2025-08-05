@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <title>NANNIX</title>
+
   <style>
     :root {
       --vh: 1vh;
@@ -17,10 +17,12 @@
 
     html, body {
       height: calc(var(--vh, 1vh) * 100);
+      height: 100dvh; /* на всякий */
       width: 100vw;
       margin: 0;
       padding: 0;
       overflow: hidden;
+      background: black;
     }
 
     #bg-video {
@@ -29,6 +31,7 @@
       left: 0;
       width: 100vw;
       height: calc(var(--vh, 1vh) * 100);
+      height: 100dvh;
       object-fit: cover;
       z-index: -1;
     }
@@ -37,6 +40,7 @@
       position: relative;
       z-index: 1;
       height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -46,10 +50,20 @@
       padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
 
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 24px;
+    }
+
     .buttons {
       display: flex;
       gap: 16px;
-      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .buttons a {
@@ -58,6 +72,7 @@
       border: 1px solid white;
       text-decoration: none;
       border-radius: 6px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -80,7 +95,16 @@
       <a href="https://fansly.com/nannix/posts?"target="_blank">Fansly</a>
     </div>
   </div>
+  
+<script>
+    // Обновляем переменную --vh под реальную высоту экрана
+    function setRealVH() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 
+    window.addEventListener('resize', setRealVH);
+    window.addEventListener('load', setRealVH);
+  </script>
 </body>
-</html>
 </html>
