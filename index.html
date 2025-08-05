@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#000000">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <title>nanni</title>
 
@@ -77,17 +77,22 @@
       transition: all 0.3s ease-in-out;
     }
 
+    .buttons a .button-text {
+      position: relative;
+      z-index: 2;
+    }
+
     .buttons a svg {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.7);
       width: 140%;
       height: 140%;
+      transform: translate(-50%, -50%) scale(0.7);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s ease, transform 0.5s ease;
-      z-index: 0;
+      z-index: 1;
     }
 
     .buttons a:hover svg {
@@ -100,10 +105,9 @@
 
   <!-- ВИДЕО ФОН -->
   <video autoplay muted loop playsinline preload="auto" id="bg-video">
-    <source src="https://botikbot.github.io/vizitka/background3.mp4" type="video/mp4">
+    <source src="https://botikbot.github.io/vizitka/background3.mp4" type="video/mp4" />
     Ваш браузер не поддерживает HTML5 видео.
   </video>
-  <div class="overlay"></div>
 
   <!-- КОНТЕНТ -->
   <div class="content">
@@ -111,7 +115,7 @@
     <p>| MODEL |</p>
     <div class="buttons">
       <a href="https://t.me/nanni" target="_blank">
-        Telegram
+        <span class="button-text">Telegram</span>
         <svg viewBox="0 0 100 100" fill="none" stroke="white" stroke-width="0.5">
           <path d="M50 10 C55 25, 65 35, 50 50 
                    C35 65, 45 75, 50 90 
@@ -120,7 +124,7 @@
         </svg>
       </a>
       <a href="https://instagram.com/minix_nani" target="_blank">
-        Instagram
+        <span class="button-text">Instagram</span>
         <svg viewBox="0 0 100 100" fill="none" stroke="white" stroke-width="0.5">
           <path d="M50 10 C55 25, 65 35, 50 50 
                    C35 65, 45 75, 50 90 
@@ -129,7 +133,7 @@
         </svg>
       </a>
       <a href="https://fansly.com/nannix/posts?" target="_blank">
-        Fansly
+        <span class="button-text">Fansly</span>
         <svg viewBox="0 0 100 100" fill="none" stroke="white" stroke-width="0.5">
           <path d="M50 10 C55 25, 65 35, 50 50 
                    C35 65, 45 75, 50 90 
@@ -140,6 +144,7 @@
     </div>
   </div>
 
+  <!-- JS для 100vh на мобилках -->
   <script>
     function setRealVH() {
       let vh = window.innerHeight * 0.01;
