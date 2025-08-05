@@ -2,49 +2,35 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <!-- Для iOS -->
+  <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- Для Android Chrome -->
-  <meta name="theme-color" content="#000000">
-
   <title>NANNIX</title>
   <style>
-    /* Обнуляем всё */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --vh: 1vh;
     }
 
     html, body {
-      width: 100%;
-      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
+      width: 100vw;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
     }
 
-    body {
-      /* Учитываем безопасную высоту экрана */
-      height: 100vh;
-      height: 100svh;
-      width: 100vw;
-      position: relative;
-      font-family: Arial, sans-serif;
-    }
-
     #bg-video {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       object-fit: cover;
       z-index: -1;
-      background-color: black;
-      pointer-events: none;
     }
 
     .content {
@@ -62,21 +48,16 @@
 
     .buttons {
       display: flex;
-      gap: 15px;
+      gap: 16px;
       margin-top: 20px;
     }
 
     .buttons a {
+      color: white;
       padding: 10px 20px;
       border: 1px solid white;
-      color: white;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-
-    .buttons a:hover {
-      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
     }
   </style>
 </head>
